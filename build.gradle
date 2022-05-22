@@ -58,8 +58,23 @@ tasks.withType(Test) {
     }
 }
 
-task selenide_android_test(type: Test) {
+task emulator_android(type: Test) {
     useJUnitPlatform {
-        includeTags 'selenide'
+        includeTags 'emulator_android'
     }
+    systemProperty "environment", "emulator"
+}
+
+task selenoid_android(type: Test) {
+    useJUnitPlatform {
+        includeTags 'selenoid_android'
+    }
+    systemProperty "environment", "selenoid"
+}
+
+task browserstack_android(type: Test) {
+    useJUnitPlatform {
+        includeTags 'browserstack_android'
+    }
+    systemProperty "environment", "browserstack"
 }
