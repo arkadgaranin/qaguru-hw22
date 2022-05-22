@@ -1,7 +1,7 @@
 package com.gmail.arkgaranin.drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
-import com.gmail.arkgaranin.config.MobileConfig;
+import com.gmail.arkgaranin.config.CredentialsConfig;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.remote.AutomationName;
@@ -23,13 +23,14 @@ import static org.openqa.selenium.remote.CapabilityType.APPLICATION_NAME;
 
 @ParametersAreNonnullByDefault
 public class LocalMobileDriver implements WebDriverProvider {
+
   @Override
   @CheckReturnValue
   @Nonnull
   public WebDriver createDriver(Capabilities capabilities) {
     File app = downloadApk();
 
-    MobileConfig config = ConfigFactory.create(MobileConfig.class, System.getProperties());
+    CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class, System.getProperties());
 
     UiAutomator2Options options = new UiAutomator2Options();
     options.merge(capabilities);
