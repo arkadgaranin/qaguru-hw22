@@ -16,6 +16,7 @@ public class WikipediaAppAndroidTests extends TestBase {
 
   @Test
   void firstPageTest() {
+
     step("Проверка текста на экране", () -> {
       $(AppiumBy.id("org.wikipedia.alpha:id/primaryTextView")).shouldHave(text
           ("The Free Encyclopedia …in over 300 languages"));
@@ -45,7 +46,7 @@ public class WikipediaAppAndroidTests extends TestBase {
           ("text", "Русский"));
     });
 
-    step("Возврат назад по кнопке стрелке", () -> {
+    step("Возврат назад к первому экрану", () -> {
       $(AppiumBy.className("android.widget.ImageButton")).click();
     });
 
@@ -114,7 +115,7 @@ public class WikipediaAppAndroidTests extends TestBase {
           (attribute("text", DESCR_TEXT));
     });
 
-    step("Выкл свитч отправки данных", () -> {
+    step("Выключение свитча отправки данных", () -> {
       $(AppiumBy.id("org.wikipedia.alpha:id/switchView")).click();
     });
 
