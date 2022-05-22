@@ -36,6 +36,7 @@ public class LocalMobileDriver implements WebDriverProvider {
     options.setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2);
     options.setPlatformName(config.platformName());
     options.setDeviceName(config.deviceName());
+    options.setDeviceName(config.platformVersion());
     options.setCapability(APPLICATION_NAME, "Appium");
     options.setApp(app.getAbsolutePath());
     options.setLocale("en");
